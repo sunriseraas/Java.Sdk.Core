@@ -1,4 +1,4 @@
-package sunrise.raas.sdk.core.DependencyInjection;
+package sunrise.raas.sdk.core.dependencyinjection;
 
 import sunrise.raas.sdk.core.application.ApplicationFactory;
 import sunrise.raas.sdk.core.application.ExecutorApplicationFactory;

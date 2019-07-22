@@ -114,14 +114,14 @@ public final class RestRequestExecutor extends AbstractRequestExecutor<RestReque
         urlConnection.setRequestMethod(requestMethod);
         urlConnection.setRequestProperty("Authorization", authorizationHeaderValue);
 
-        if (httpVerb != HttpVerb.Get) {
-            setContent(restRequest, urlConnection);
+        if (restRequest instanceof RestRequestWithBody) {
+            setContent((RestRequestWithBody) restRequest, urlConnection);
         }
 
         return urlConnection;
     }
 
-    private void setContent(RestRequest restRequest, HttpURLConnection urlConnection) throws Exception {
+    private void setContent(RestRequestWithBody restRequest, HttpURLConnection urlConnection) throws Exception {
         urlConnection.setDoOutput(true);
 
         var outputStream = urlConnection.getOutputStream();
